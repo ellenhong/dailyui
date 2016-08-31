@@ -43,4 +43,13 @@ $(document).ready(function() {
 			$("#full-overlay").css('z-index', '-100');
 		}
 	);
+
+	$('.category-button').click( 
+		function() {
+			if ($(this).siblings().hasClass('selected')) {
+				$(this).siblings().removeClass('selected');
+			}
+			$(this).addClass('selected');
+		}
+	)
 });
