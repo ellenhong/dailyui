@@ -26,7 +26,7 @@ $(document).ready(function() {
 		function() {
 			var imgNum = $(this).find('.number').attr('id');
 			console.log(imgNum);
-			var imgPath = 'url("img/' + imgNum + '.png")';
+			var imgPath = 'url("app/img/' + imgNum + '.png")';
 			$("#full-img").css('background-image', imgPath);
 			$("#full-img").css('opacity', '1');
 			$("#full-img").css('z-index', '200');
