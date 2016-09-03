@@ -1,40 +1,9 @@
-/* app css stylesheet */
+
 body {
   font-family: 'Roboto';
   font-weight: 300;
 }
 
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
-
-/******** ********/
 
 .header {
   font-size: 2em;
@@ -95,30 +64,6 @@ body {
 
 .square-grid__cell--7 {
   flex-basis: 20%;
-}
-
-@media (max-width: 1100px) {
-  .square-grid__cell--7 {
-    flex-basis: 25%;
-  }
-}
-
-@media (max-width: 900px) {
-  .square-grid__cell--7 {
-    flex-basis: 33.333333%;
-  }
-}
-
-@media (max-width: 650px) {
-  .square-grid__cell--7 {
-    flex-basis: 50%;
-  }
-}
-
-@media (max-width: 400px) {
-  .square-grid__cell--7 {
-    flex-basis: 100%;
-  }
 }
 
 .grid-img {
@@ -183,8 +128,29 @@ body {
   transition: 0.5s;
 }
 
+@media (max-width: 1100px) {
+  .square-grid__cell--7 {
+    flex-basis: 25%;
+  }
+}
 
+@media (max-width: 900px) {
+  .square-grid__cell--7 {
+    flex-basis: 33.333333%;
+  }
+}
 
+@media (max-width: 650px) {
+  .square-grid__cell--7 {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 400px) {
+  .square-grid__cell--7 {
+    flex-basis: 100%;
+  }
+}
 
 @media (max-width: 900px) {
   #full-img {
