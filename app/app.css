@@ -1,18 +1,123 @@
+@font-face {
+  font-family: AvenirNext-Bold;
+  src: url("fonts/AvenirNext-Bold.ttf");
+  font-weight: light;
+}
+
+@font-face {
+  font-family: AvenirNext-Medium;
+  src: url("fonts/AvenirNext-Medium.ttf");
+}
+
+@font-face {
+  font-family: AvenirNext-UltraLight;
+  src: url("fonts/AvenirNext-UltraLight.ttf");
+}
 
 body {
   font-family: 'Roboto';
-  font-weight: 300;
+  box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+p {
+  margin: 0;
+}
+
+/*-------------------------- LANDING --------------------------*/
+
+.landing {
+  font-family: 'Lato';
+  width: 100vw;
+  height: 100vh;
+  background: #212121;
+  position: absolute;
+  top: 0;
+}
+
+.who {
+  color: white;
+  font-size: 0.75em;
+  float: right;
+  margin: 25px 25px 0 0;
+  background-color: #F06292;
+  border-radius: 100%;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.who:hover {
+  transform: scale(1.1);
+}
+
+.landing-box {
+  width: 100px;
+  border-bottom: solid 1px white;
+  margin: 0 auto;
+  margin-top: 350px;
+}
+
+.landing-header {
+  font-weight: 900;
+  font-size: 3em;
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 150px;
+  padding: 50px;
+}
+
+.landing-descrip {
+  font-weight: 300;
+  text-align: center;
+  color: white;
+  margin: 50px auto;
+}
+
+.landing-descrip a:hover {
+  color: #F8BBD0;
+}
+
+.ellen {
+  font-size: 0.5em;
+  margin-bottom: -15px;
+  text-align: center;
+}
+
+.ellen a {
+  text-decoration: none;
+  color: white;
+}
+
+.ellen a:hover {
+  opacity: 1;
+  font-family: 'AvenirNext-Medium';
+}
+
+.progress {
+  color: white;
+  font-size: 0.4em;
+  margin-top: -5px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
 
 .header {
   font-size: 2em;
   text-align: center;
-  margin-top: 25px;
+  margin-top: calc(100vh + 25px);
   font-family: 'Raleway';
-  font-weight: ;
-  color: #494958;
+  font-weight:;
+  color: #232323;
 }
+
+/*-------------------------- GRID --------------------------*/
 
 .categories {
   text-align: center;
@@ -70,6 +175,8 @@ body {
   object-fit: cover;
 }
 
+/*-------------------------- GRID ITEM OVERLAY --------------------------*/
+
 .overlay {
   width: 100%;
   height: 100%;
@@ -87,6 +194,7 @@ body {
   opacity: 0;
   margin-bottom: -50px;
   color: #494958;
+  font-weight: 300;
 }
 
 .number {
@@ -104,7 +212,9 @@ body {
   transition: transform 0.3s;
 }
 
-#full-overlay {
+/*-------------------------- FULL OVERLAY --------------------------*/
+
+.full-overlay {
   position: fixed;
   background: #000000;
   width: 100%;
@@ -115,18 +225,83 @@ body {
   transition: 0.5s;
 }
 
-#full-img {
+.full-img {
   position: fixed;
   background: no-repeat center center;
-  background-image: url("../img/021.png");
   z-index: -100;
-  background-size: auto 90%, contain;
-  top: 0px;
-  width: 100%;
+  background-size: contain;
+  top: 0;
+  width: 50%;
   height: 100%;
   opacity: 0;
   transition: 0.5s;
+  background-color: white;
 }
+
+.full-text {
+  position: fixed;
+  z-index: -100;
+  top: 0;
+  right: 0px;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.5s;
+  background: linear-gradient(90deg, transparent 50%, #212121 50%);
+  padding-left: 50%;
+  color: white;
+}
+
+.full-num {
+  text-align: center;
+  font-family: 'Playfair Display';
+  font-size: 2.5em;
+  margin-top: 30vh;
+}
+
+.full-name {
+  text-align: center;
+  font-family: 'Playfair Display';
+  font-size: 3.5em;
+}
+
+button {
+  border: none;
+  outline: none;
+  position: absolute;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  background: transparent;
+  border-radius: 100%;
+  padding: 10px 15px;
+  color: #afafaf;
+  font-family: 'Raleway';
+  bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#prev {
+  left: calc(50vw - 100px);
+}
+
+#next {
+  right: calc(50vw - 100px);
+  color: white;
+}
+
+
+.close {
+  display: inline-block;
+  cursor: pointer;
+  padding: 9px 16px;
+  float: right;
+  margin: 10px 20px;
+  font-size: 2em;
+}
+
+
+/*-------------------------- MEDIA QUERIES --------------------------*/
 
 @media (max-width: 1100px) {
   .square-grid__cell--7 {
@@ -152,9 +327,4 @@ body {
   }
 }
 
-@media (max-width: 900px) {
-  #full-img {
-    background-size: auto 80%, contain;
-  }
-}
 

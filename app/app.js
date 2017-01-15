@@ -3,8 +3,6 @@
 // Declare app level module which depends on views, and components
 var dailyUiApp = angular.module('myApp', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -40,16 +38,51 @@ dailyUiApp.controller('ImagesController', ["$scope", function($scope) {
 	{num: '023', name: 'Onboarding', img: 'app/img/023.png'},
 	{num: '024', name: 'Boarding Pass', img: 'app/img/024.png'},
 	{num: '025', name: 'TV App', img: 'app/img/025.png'},
-	{num: '026', name: 'Subscribe', img: 'app/img/026.png'}
+	{num: '026', name: 'Subscribe', img: 'app/img/026.png'},
+	{num: '027', name: 'Dropdown', img: 'app/img/027.png'},
+	{num: '028', name: 'Contact Us', img: 'app/img/028.png'},
+	{num: '029', name: 'Map', img: 'app/img/029.png'},
+	{num: '030', name: 'Pricing', img: 'app/img/030.png'}
 	];
+
+	$scope.currItem;
+	$scope.currIndex;
+	$scope.nextItem;
+	$scope.prevItem;
+
+	$scope.getItem = function(item) {
+		$scope.currItem = item;
+	}
+
+	// Go to previous item
+	$scope.prev = function() {
+		$scope.currIndex = $scope.items.indexOf($scope.currItem);
+		$scope.prevItem = $scope.items[$scope.currIndex - 1];
+
+		// update currItem
+		$scope.currItem = $scope.prevItem;
+	}
+
+	// Go to next item
+	$scope.next = function() {
+		$scope.currIndex = $scope.items.indexOf($scope.currItem);
+		$scope.nextItem = $scope.items[$scope.currIndex + 1];
+
+		// update currItem
+		$scope.currItem = $scope.nextItem;
+
+	}
 
 	$scope.propertyName = 'num';
 	$scope.reverse = true;
 
+	// Sort grid items by category (latest or chronological)
 	$scope.sortBy = function(propertyName, reverse) {
 		$scope.reverse = reverse;
 		$scope.propertyName = propertyName;
 	}
+
+	
 
 }]);
 

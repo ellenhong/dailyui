@@ -8,31 +8,69 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app/app.css">
-
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,700|Raleway:300,400,700|Oxygen:300,400,700|Hind" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,700,900|Roboto:300,400,700|Raleway:300,400,700|Oxygen:300,400,700|Hind" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet">
 
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
+  <div class="landing">
+    <a target="_blank" href="http://ellenhong.github.io">
+      <div class="who">
+      <p>who's</p> 
+      <p>ellen?</p>
+    </a>
+    </div>
+    <div class="landing-box">
+    </div>
+    <div class="landing-header">
+      <div class="ellen">
+        ellen's
+      </div>
+      Daily UI
+      <div class="progress">
+        progress
+      </div>
+    </div>
+    <div class="landing-descrip">
+      <p>(hopefully) becoming a better designer</p>
+      <p>through <a target="_blank" href="http://www.dailyui.co/"><b>this 100-day challenge</b></a></p>
+    </div>
+  </div>
   <div class="header">
-    Daily UI
   </div>
   <div ng-controller="ImagesController">
     <div class="categories">
       <span class="category-button selected" ng-click="sortBy('num', true)">Latest</span>
       <span class="category-button" ng-click="sortBy('num', false)">Chronological</span>
     </div>
-    <div id="full-overlay">
+    <div class="full-overlay"></div>
+    <div class="full-img" ng-style="{'background-image': 'url(' + currItem.img + ')'}">
+
     </div>
-    <div id="full-img">
+    <div class="full-text">
+      <div class="close">
+        &times;
+      </div>
+      <div class="full-num"> {{currItem.num}} </div>
+      <div class="full-name"> {{currItem.name}} </div>
+      <!-- If sorted by "Latest" -->
+      <div ng-if="reverse == true">
+        <button id="prev" ng-click="next()"> prev </button>
+        <button id="next" ng-click="prev()"> next </button>
+      </div>
+      <!-- If sorted by "Chronological" -->
+      <div ng-if="reverse == false">
+        <button id="prev" ng-click="prev()"> prev </button>
+        <button id="next" ng-click="next()"> next </button>
+      </div>
     </div>
     <div class="square-grid">
-      <div class="square-grid__cell square-grid__cell--7" ng-repeat="item in items | orderBy:propertyName:reverse">
+      <div class="square-grid__cell square-grid__cell--7" ng-repeat="item in items | orderBy:propertyName:reverse" ng-click="getItem(item)">
         <div class="square-grid__content">
           <div class="overlay"></div>
           <div class="info">
-            <div class="number" id={{item.num}}>{{item.num}} // {{item.name}}</div>
+            <div class="number" id={{item.num}} ""> {{item.num}} // {{item.name}}</div>
           </div>
           <img class="grid-img" ng-src={{item.img}}>
         </div>
@@ -40,25 +78,11 @@
     </div>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyA5n2E77ZECpzsz1GtZ5W958jubRla7TRI",
-      authDomain: "daily-ui.firebaseapp.com",
-      databaseURL: "https://daily-ui.firebaseio.com",
-      storageBucket: "daily-ui.appspot.com",
-    };
-    firebase.initializeApp(config);
-  </script>
-
   <script src="app/bower_components/angular/angular.js"></script>
   <script src="app/bower_components/angular-route/angular-route.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="app/app.js"></script>
   <script src="app/script.js"></script>
-  <script src="app/view1/view1.js"></script>
-  <script src="app/view2/view2.js"></script>
   <script src="app/components/version/version.js"></script>
   <script src="app/components/version/version-directive.js"></script>
   <script src="app/components/version/interpolate-filter.js"></script>
